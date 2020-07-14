@@ -1,0 +1,373 @@
+{% load static %}
+{% static "vendor" as vendor %}
+{% static "js" as js %}
+{% static "img" as images %}
+{% static "css" as style %}
+<!--
+=========================================================
+* Argon Dashboard PRO - v1.2.0
+=========================================================
+* Product Page: https://www.creative-tim.com/product/argon-dashboard-pro
+* Copyright  Creative Tim (http://www.creative-tim.com)
+* Coded by www.creative-tim.com
+=========================================================
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+-->
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Start your development with a Dashboard for Bootstrap 4.">
+  <meta name="author" content="Creative Tim">
+  <title>CX-19 Lists of Patients</title>
+  <!-- Favicon -->
+  <!-- Fonts -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
+  <!-- Icons -->
+  <link rel="stylesheet" href="{{vendor }}/nucleo/css/nucleo.css" type="text/css">
+  <link rel="stylesheet" href="{{vendor }}/@fortawesome/fontawesome-free/css/all.min.css" type="text/css">
+  <!-- Page plugins -->
+  <link rel="stylesheet" href="{{vendor }}/datatables.net-bs4/css/dataTables.bootstrap4.min.css">
+  <link rel="stylesheet" href="{{vendor }}/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css">
+  <link rel="stylesheet" href="{{vendor }}/datatables.net-select-bs4/css/select.bootstrap4.min.css">
+  <!-- Argon CSS -->
+  <link rel="stylesheet" href="{{ style }}/argon.css?v=1.2.0" type="text/css">
+</head>
+
+<body>
+  <!-- Sidenav -->
+  <nav class="sidenav navbar navbar-vertical  fixed-left  navbar-expand-xs navbar-light bg-white" id="sidenav-main">
+    <div class="scrollbar-inner">
+        <!-- Brand -->
+        <div class="sidenav-header  d-flex  align-items-center">
+            <a class="navbar-brand" href="/covid-19/dashboard">
+                Xmot-19
+            </a>
+            <div class=" ml-auto ">
+                <!-- Sidenav toggler -->
+                <div class="sidenav-toggler d-none d-xl-block" data-action="sidenav-unpin"
+                    data-target="#sidenav-main">
+                    <div class="sidenav-toggler-inner">
+                        <i class="sidenav-toggler-line"></i>
+                        <i class="sidenav-toggler-line"></i>
+                        <i class="sidenav-toggler-line"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="navbar-inner">
+            <!-- Collapse -->
+            <div class="collapse navbar-collapse" id="sidenav-collapse-main">
+                <!-- Nav items -->
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link " href="/covid-19/dashboard" role="button"
+                            aria-expanded="true" aria-controls="navbar-dashboards">
+                            <i class="ni ni-shop text-primary"></i>
+                            <span class="nav-link-text">Dashboards</span>
+                        </a>
+                    </li>
+                    
+
+
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/covid-19/dashboard/patients" role="button"
+                            aria-expanded="false" aria-controls="navbar-components">
+                            <i class="ni ni-ui-04 text-info"></i>
+                            <span class="nav-link-text">Patients Lists</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="/covid-19/dashboard/register" role="button"
+                            aria-expanded="false" aria-controls="navbar-forms">
+                            <i class="ni ni-single-copy-04 text-pink"></i>
+                            <span class="nav-link-text">Register</span>
+                        </a>
+                        
+                    </li>
+                    
+                </ul>
+                <!-- Divider -->
+                <hr class="my-3">
+                <!-- Heading -->
+                
+                <ul class="navbar-nav mb-md-3">
+                    <li class="nav-item">
+                        <a class="nav-link"
+                            href="#">
+                            <i class="ni ni-spaceship"></i>
+                            <span class="nav-link-text">Wiki-A Guide To <br>Use This Application</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link"
+                            href="#">
+                            <i class="ni ni-palette"></i>
+                            <span class="nav-link-text">About Us</span>
+                        </a>
+                    </li>
+
+                </ul>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+  <!-- Main content -->
+  <div class="main-content" id="panel">
+    <!-- Topnav -->
+    <nav class="navbar navbar-top navbar-expand navbar-dark bg-primary border-bottom">
+        <div class="container-fluid">
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <!-- Search form -->
+                <form class="navbar-search navbar-search-light form-inline mr-sm-3" id="navbar-search-main">
+                    <div class="form-group mb-0">
+                        <div class="input-group input-group-alternative input-group-merge">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-search"></i></span>
+                            </div>
+                            <input class="form-control" placeholder="Search" type="text">
+                        </div>
+                    </div>
+                    <button type="button" class="close" data-action="search-close" data-target="#navbar-search-main"
+                        aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </form>
+                <!-- Navbar links -->
+                <ul class="navbar-nav align-items-center  ml-md-auto ">
+                    <li class="nav-item d-xl-none">
+                        <!-- Sidenav toggler -->
+                        <div class="pr-3 sidenav-toggler sidenav-toggler-dark" data-action="sidenav-pin"
+                            data-target="#sidenav-main">
+                            <div class="sidenav-toggler-inner">
+                                <i class="sidenav-toggler-line"></i>
+                                <i class="sidenav-toggler-line"></i>
+                                <i class="sidenav-toggler-line"></i>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item d-sm-none">
+                        <a class="nav-link" href="#" data-action="search-show" data-target="#navbar-search-main">
+                            <i class="ni ni-zoom-split-in"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false">
+                            <i class="ni ni-bell-55"></i>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-xl  dropdown-menu-right  py-0 overflow-hidden">
+                            <!-- Dropdown header -->
+                            <div class="px-3 py-3">
+                                <h6 class="text-sm text-muted m-0">You have <strong class="text-primary">no</strong>
+                                    notifications.</h6>
+                            </div>
+                            
+                            <!-- View all -->
+                        
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false">
+                            <i class="ni ni-ungroup"></i>
+                        </a>
+                        <div
+                            class="dropdown-menu dropdown-menu-lg dropdown-menu-dark bg-default  dropdown-menu-right ">
+                            <div class="row shortcuts px-4">
+                                <a href="#!" class="col-4 shortcut-item">
+                                    <span class="shortcut-media avatar rounded-circle bg-gradient-red">
+                                        <i class="ni ni-calendar-grid-58"></i>
+                                    </span>
+                                    <small>Calendar</small>
+                                </a>
+                                <a href="#!" class="col-4 shortcut-item">
+                                    <span class="shortcut-media avatar rounded-circle bg-gradient-orange">
+                                        <i class="ni ni-email-83"></i>
+                                    </span>
+                                    <small>Email</small>
+                                </a>
+                                <a href="#!" class="col-4 shortcut-item">
+                                    <span class="shortcut-media avatar rounded-circle bg-gradient-info">
+                                        <i class="ni ni-credit-card"></i>
+                                    </span>
+                                    <small>Payments</small>
+                                </a>
+                                <a href="#!" class="col-4 shortcut-item">
+                                    <span class="shortcut-media avatar rounded-circle bg-gradient-green">
+                                        <i class="ni ni-books"></i>
+                                    </span>
+                                    <small>Reports</small>
+                                </a>
+                                <a href="#!" class="col-4 shortcut-item">
+                                    <span class="shortcut-media avatar rounded-circle bg-gradient-purple">
+                                        <i class="ni ni-pin-3"></i>
+                                    </span>
+                                    <small>Maps</small>
+                                </a>
+                                <a href="#!" class="col-4 shortcut-item">
+                                    <span class="shortcut-media avatar rounded-circle bg-gradient-yellow">
+                                        <i class="ni ni-basket"></i>
+                                    </span>
+                                    <small>Shop</small>
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <ul class="navbar-nav align-items-center  ml-auto ml-md-0 ">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false">
+                            <div class="media align-items-center">
+                                <span class="avatar avatar-sm rounded-circle">
+                                    <i class="ni ni-single-02"></i>
+                                </span>
+                                <div class="media-body  ml-2  d-none d-lg-block">
+                                    <span class="mb-0 text-sm  font-weight-bold">{{ lab_data.lab_name }}</span>
+                                </div>
+                            </div>
+                        </a>
+                        <div class="dropdown-menu  dropdown-menu-right ">
+                            <div class="dropdown-header noti-title">
+                                <h6 class="text-overflow m-0">Welcome!</h6>
+                            </div>
+                            <a href="#!" class="dropdown-item">
+                                <i class="ni ni-single-02"></i>
+                                <span>My profile</span>
+                            </a>
+                            <a href="#!" class="dropdown-item">
+                                <i class="ni ni-settings-gear-65"></i>
+                                <span>Settings</span>
+                            </a>
+                            <a href="#!" class="dropdown-item">
+                                <i class="ni ni-calendar-grid-58"></i>
+                                <span>Activity</span>
+                            </a>
+                            <a href="#!" class="dropdown-item">
+                                <i class="ni ni-support-16"></i>
+                                <span>Support</span>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a href="/covid-19/dashboard/logout" class="dropdown-item">
+                                <i class="ni ni-user-run"></i>
+                                <span>Logout</span>
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Header -->
+    <!-- Header -->
+    <div class="header bg-primary pb-6">
+      <div class="container-fluid">
+        <div class="header-body">
+          <div class="row align-items-center py-4">
+            <div class="col-lg-6 col-7">
+              <h6 class="h2 text-white d-inline-block mb-0">An Intelligent Covid-19 Monitoring System</h6>
+              <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
+                <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
+                  <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
+                  <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+                </ol>
+              </nav>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Page content -->
+    <div class="container-fluid mt--6">
+      <!-- Table -->
+      <div class="row">
+        <div class="col">
+          <div class="card">
+            <!-- Card header -->
+            <div class="card-header">
+              <h3 class="mb-0">Covid-19 Patients List</h3>
+              <p class="text-sm mb-0">
+                
+              </p>
+            </div>
+            <div class="table-responsive py-4">
+              <table class="table table-flush" id="datatable-basic">
+                <thead class="thead-light">
+                  <tr>
+                    <th>Bed No</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Date of Admit</th>
+                    <th>Gender</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tfoot>
+                  <tr>
+                    <th>Bed No</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Date of Admit</th>
+                    <th>Gender</th>
+                    <th>Status</th>
+                  </tr>
+                </tfoot>
+                <tbody>
+                    {% for patients in Patients %}
+                        <tr>
+                            <td><a href="/covid-19/dashboard/{{ patients.pk}}/profile">{{ patients.pk }}</a></td>
+                            <td>{{ patients.fields.first_name }}</td>
+                            <td>{{ patients.fields.last_name }}</td>
+                            <td>{{ patients.fields.admit_time }}</td>
+                            <td>{{ patients.fields.Gender }}</td>
+                            <td>{{ patients.fields.status }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+      <!-- Footer -->
+      <footer class="footer pt-0">
+        <div class="row align-items-center justify-content-lg-between">
+          <div class="col-lg-6">
+            <div class="copyright text-center  text-lg-left  text-muted">
+              &copy; 2020 <a href="#" class="font-weight-bold ml-1" target="_blank">Automata Tools and Technologies (P) Ltd.</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+  <!-- Argon Scripts -->
+  <!-- Core -->
+  <script src="{{ vendor }}/jquery/dist/jquery.min.js"></script>
+  <script src="{{ vendor }}/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="{{ vendor }}/js-cookie/js.cookie.js"></script>
+  <script src="{{ vendor }}/jquery.scrollbar/jquery.scrollbar.min.js"></script>
+  <script src="{{ vendor }}/jquery-scroll-lock/dist/jquery-scrollLock.min.js"></script>
+  <!-- Optional JS -->
+  <script src="{{ vendor }}/datatables.net/js/jquery.dataTables.min.js"></script>
+  <script src="{{ vendor }}/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
+  <script src="{{ vendor }}/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+  <script src="{{ vendor }}/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js"></script>
+  <script src="{{ vendor }}/datatables.net-buttons/js/buttons.html5.min.js"></script>
+  <script src="{{ vendor }}/datatables.net-buttons/js/buttons.flash.min.js"></script>
+  <script src="{{ vendor }}/datatables.net-buttons/js/buttons.print.min.js"></script>
+  <script src="{{ vendor }}/datatables.net-select/js/dataTables.select.min.js"></script>
+  <!-- Argon JS -->
+  <script src="{{ js }}/argon.js?v=1.2.0"></script>
+  <!-- Demo JS - remove this in your project -->
+  <script src="{{ js }}/demo.min.js"></script>
+</body>
+
+</html>
